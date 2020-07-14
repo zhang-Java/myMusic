@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zs.mapper.RankListMapper">
+
+    <insert id="insertRank">
+
+        insert into rank_list value (null,#{rTime},#{rule},#{rMessageNum},#{rName},#{rType});
+
+    </insert>
+    <select id="selectAllRank" resultType="com.zs.bean.RankList">
+
+        select r_id rId,r_time rTime,rule,r_message_num rMessageNum,r_name rName,r_type rType
+        from rank_list;
+
+    </select>
+    <select id="selectRankByRType" resultType="com.zs.bean.RankList">
+        select r_id rId,r_time rTime,rule,r_message_num rMessageNum,r_name rName,r_type rType
+        from rank_list
+        where r_type=#{rType};
+    </select>
+    <select id="selectRankByRId" resultType="com.zs.bean.RankList">
+        select r_id rId,r_time rTime,rule,r_message_num rMessageNum,r_name rName,r_type rType
+        from rank_list
+        where r_id=#{rId};
+    </select>
+</mapper>

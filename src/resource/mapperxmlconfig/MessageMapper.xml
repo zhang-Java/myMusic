@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zs.mapper.MessageMapper">
+
+    <resultMap id="Message" type="com.zs.bean.Message">
+        <id column="m_id" property="mId"/>
+        <result column="m_time" property="mTime"/>
+        <result column="like_num" property="likeNum"/>
+        <result column="m_content" property="mContent"/>
+
+        <association property="user" javaType="com.zs.bean.User">
+            <id column="u_id" property="uId"/>
+            <result column="u_name" property="uName"/>
+            <result column="u_password" property="uPassword"/>
+            <result column="u_number" property="uNumber"/>
+            <result column="u_attention_num" property="uAttentionNum"/>
+            <result column="u_fans_num" property="uFansNum"/>
+            <result column="u_photo_url" property="uPhotoUrl"/>
+        </association>
+
+        <association property="songList" resultMap="SongList"/>
+
+        <association property="song" resultMap="Song"/>
+
+        <association property="album" resultMap="AlbumResult"/>
+
+    </resultMap>
+
+
+    <resultMap id="SongList" type="com.zs.bean.SongList">
+        <id column="l_id" property="lId"/>
+        <result column="list_name" property="listName"/>
+        <result column="song_num" property="songNum"/>
+        <result column="l_listen_num" property="lListenNum"/>
+        <result column="l_photo_url" property="lPhotoUrl"/>
+        <result column="l_message_num" property="lMessageNum"/>
+
+        <association property="user" javaType="com.zs.bean.User">
+            <id column="u_id" property="uId"/>
+            <result column="u_name" property="uName"/>
+            <result column="u_password" property="uPassword"/>
+            <result column="u_number" property="uNumber"/>
+            <result column="u_attention_num" property="uAttentionNum"/>
+            <result column="u_fans_num" property="uFansNum"/>
+            <result column="u_photo_url" property="uPhotoUrl"/>
+        </association>
+
+        <association property="tag1" javaType="com.zs.bean.Tag">
+            <id column="t_id" property="tId"/>
+            <result column="t_name" property="tName"/>
+            <result column="t_type" property="tType"/>
+        </association>
+
+        <association property="tag2" javaType="com.zs.bean.Tag">
+            <id column="t_id" property="tId"/>
+            <result column="t_name" property="tName"/>
+            <result column="t_type" property="tType"/>
+        </association>
+
+        <association property="tag3" javaType="com.zs.bean.Tag">
+            <id column="t_id" property="tId"/>
+            <result column="t_name" property="tName"/>
+            <result column="t_type" property="tType"/>
+        </association>
+
+    </resultMap>
+
+    <resultMap id="AlbumResult" type="com.zs.bean.Album">
+        <id column="a_id" property="aId"/>
+        <result column="a_name" property="aName"/>
+        <result column="a_time" property="aTime"/>
+        <result column="a_company" property="aCompany"/>
+        <result column="a_type" property="aType"/>
+        <result column="a_genre" property="aGenre"/>
+        <result column="a_language" property="aLanguage"/>
+        <result column="a_introduction" property="aIntroduction"/>
+        <result column="message_num" property="messageNum"/>
+
+        <association property="singer" javaType="com.zs.bean.Singer">
+            <id column="s_id" property="sId"/>
+            <result column="s_name" property="sName"/>
+            <result column="region" property="region"/>
+            <result column="sex" property="sex"/>
+            <result column="first_letter" property="firstLetter"/>
+            <result column="style" property="style"/>
+            <result column="single_num" property="singleNum"/>
+            <result column="album_num" property="albumNum"/>
+            <result column="mv_num" property="mvNum"/>
+            <result column="s_attention_num" property="sAttentionNum"/>
+            <result column="s_introduction" property="sIntroduction"/>
+            <result column="enter" property="enter"/>
+            <result column="s_photoUrl" property="sPhotoUrl"/>
+        </association>
+
+    </resultMap>
+
+    <resultMap id="Song" type="com.zs.bean.Song">
+        <id column="song_id" property="songId"/>
+        <result column="song_name" property="songName"/>
+        <result column="s_long" property="sLong"/>
+        <result column="time" property="time"/>
+        <result column="lyric" property="lyric"/>
+        <result column="message_num" property="messageNum"/>
+        <result column="song_listen_num" property="song_listenNum"/>
+        <result column="mv" property="mv"/>
+
+        <association property="singer1" javaType="com.zs.bean.Singer">
+            <id column="s_id" property="sId"/>
+            <result column="s_name" property="sName"/>
+            <result column="region" property="region"/>
+            <result column="sex" property="sex"/>
+            <result column="first_letter" property="firstLetter"/>
+            <result column="style" property="style"/>
+            <result column="single_num" property="singleNum"/>
+            <result column="album_num" property="albumNum"/>
+            <result column="mv_num" property="mvNum"/>
+            <result column="s_attention_num" property="sAttentionNum"/>
+            <result column="s_introduction" property="sIntroduction"/>
+            <result column="enter" property="enter"/>
+            <result column="s_photoUrl" property="sPhotoUrl"/>
+        </association>
+
+        <association property="singer2" javaType="com.zs.bean.Singer">
+            <id column="s_id" property="sId"/>
+            <result column="s_name" property="sName"/>
+            <result column="region" property="region"/>
+            <result column="sex" property="sex"/>
+            <result column="first_letter" property="firstLetter"/>
+            <result column="style" property="style"/>
+            <result column="single_num" property="singleNum"/>
+            <result column="album_num" property="albumNum"/>
+            <result column="mv_num" property="mvNum"/>
+            <result column="s_attention_num" property="sAttentionNum"/>
+            <result column="s_introduction" property="sIntroduction"/>
+            <result column="enter" property="enter"/>
+            <result column="s_photoUrl" property="sPhotoUrl"/>
+        </association>
+
+        <association property="singer3" javaType="com.zs.bean.Singer">
+            <id column="s_id" property="sId"/>
+            <result column="s_name" property="sName"/>
+            <result column="region" property="region"/>
+            <result column="sex" property="sex"/>
+            <result column="first_letter" property="firstLetter"/>
+            <result column="style" property="style"/>
+            <result column="single_num" property="singleNum"/>
+            <result column="album_num" property="albumNum"/>
+            <result column="mv_num" property="mvNum"/>
+            <result column="s_attention_num" property="sAttentionNum"/>
+            <result column="s_introduction" property="sIntroduction"/>
+            <result column="enter" property="enter"/>
+            <result column="s_photoUrl" property="sPhotoUrl"/>
+        </association>
+
+        <association property="album" resultMap="AlbumResult"/>
+
+    </resultMap>
+
+</mapper>

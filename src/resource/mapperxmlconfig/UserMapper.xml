@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zs.mapper.UserMapper">
+
+    <select id="selectUserByIdAndPassword" resultType="com.zs.bean.User">
+        select u_id uId,u_name uName,u_password uPassword,u_number uNumber,u_attention_num uAttentionNum,u_fans_num uFansNum,u_photo_url uPhotoUrl
+        from user
+        where u_number=#{param1} and u_password=#{param2};
+    </select>
+    <select id="selectUserExist" resultType="com.zs.bean.User">
+        select u_id uId,u_name uName,u_password uPassword,u_number uNumber,u_attention_num uAttentionNum,u_fans_num uFansNum,u_photo_url uPhotoUrl
+        from user
+        where u_number=#{param1};
+    </select>
+    <select id="selectMaxNumber" resultType="java.lang.Integer">
+        select max(u_number)
+        from user
+    </select>
+    <select id="selectUserByUId" resultType="com.zs.bean.User">
+        select u_id uId,u_name uName,u_password uPassword,u_number uNumber,u_attention_num uAttentionNum,u_fans_num uFansNum,u_photo_url uPhotoUrl
+        from user
+        where u_id=#{uId};
+    </select>
+
+    <select id="selectUserByUNumber" resultType="com.zs.bean.User">
+        select u_id uId,u_name uName,u_password uPassword,u_number uNumber,u_attention_num uAttentionNum,u_fans_num uFansNum,u_photo_url uPhotoUrl
+        from user
+        where u_number=#{uNumber};
+    </select>
+    <select id="selectUserByFindName" resultType="com.zs.bean.User">
+        select u_id uId,u_name uName,u_password uPassword,u_number uNumber,u_attention_num uAttentionNum,u_fans_num uFansNum,u_photo_url uPhotoUrl
+        from user
+        where u_name like concat('%',#{findName},'%');
+    </select>
+    <select id="selectAUserByUId" resultType="com.zs.bean.User">
+        select u_id uId,u_name uName,u_password uPassword,u_number uNumber,u_attention_num uAttentionNum,u_fans_num uFansNum,u_photo_url uPhotoUrl
+        from fans f left join user u
+        on f.u_id2=u.u_id
+        where f.u_id1=#{uId};
+    </select>
+    <select id="selectFUserByUId" resultType="com.zs.bean.User">
+        select u_id uId,u_name uName,u_password uPassword,u_number uNumber,u_attention_num uAttentionNum,u_fans_num uFansNum,u_photo_url uPhotoUrl
+        from fans f left join user u
+        on f.u_id1=u.u_id
+        where f.u_id2=#{uId};
+    </select>
+</mapper>

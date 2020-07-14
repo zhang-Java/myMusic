@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zs.mapper.AlbumMapper">
+
+    <resultMap id="AlbumResult" type="com.zs.bean.Album">
+        <id column="a_id" property="aId"/>
+        <result column="a_name" property="aName"/>
+        <result column="a_time" property="aTime"/>
+        <result column="a_company" property="aCompany"/>
+        <result column="a_type" property="aType"/>
+        <result column="a_genre" property="aGenre"/>
+        <result column="a_language" property="aLanguage"/>
+        <result column="a_introduction" property="aIntroduction"/>
+        <result column="message_num" property="messageNum"/>
+
+        <association property="singer" javaType="com.zs.bean.Singer">
+            <id column="s_id" property="sId"/>
+            <result column="s_name" property="sName"/>
+            <result column="region" property="region"/>
+            <result column="sex" property="sex"/>
+            <result column="first_letter" property="firstLetter"/>
+            <result column="style" property="style"/>
+            <result column="single_num" property="singleNum"/>
+            <result column="album_num" property="albumNum"/>
+            <result column="mv_num" property="mvNum"/>
+            <result column="s_attention_num" property="sAttentionNum"/>
+            <result column="s_introduction" property="sIntroduction"/>
+            <result column="enter" property="enter"/>
+            <result column="s_photoUrl" property="sPhotoUrl"/>
+        </association>
+
+    </resultMap>
+
+    <resultMap id="Song" type="com.zs.bean.Song">
+        <id column="song_id" property="songId"/>
+        <result column="song_name" property="songName"/>
+        <result column="s_long" property="sLong"/>
+        <result column="time" property="time"/>
+        <result column="lyric" property="lyric"/>
+        <result column="message_num" property="messageNum"/>
+        <result column="song_listen_num" property="song_listenNum"/>
+        <result column="mv" property="mv"/>
+
+        <association property="singer1" javaType="com.zs.bean.Singer">
+            <id column="s_id1" property="sId"/>
+            <result column="s_name" property="sName"/>
+            <result column="region" property="region"/>
+            <result column="sex" property="sex"/>
+            <result column="first_letter" property="firstLetter"/>
+            <result column="style" property="style"/>
+            <result column="single_num" property="singleNum"/>
+            <result column="album_num" property="albumNum"/>
+            <result column="mv_num" property="mvNum"/>
+            <result column="s_attention_num" property="sAttentionNum"/>
+            <result column="s_introduction" property="sIntroduction"/>
+            <result column="enter" property="enter"/>
+            <result column="s_photoUrl" property="sPhotoUrl"/>
+        </association>
+
+        <association property="singer2" javaType="com.zs.bean.Singer">
+            <id column="s_id2" property="sId"/>
+            <result column="s_name" property="sName"/>
+            <result column="region" property="region"/>
+            <result column="sex" property="sex"/>
+            <result column="first_letter" property="firstLetter"/>
+            <result column="style" property="style"/>
+            <result column="single_num" property="singleNum"/>
+            <result column="album_num" property="albumNum"/>
+            <result column="mv_num" property="mvNum"/>
+            <result column="s_attention_num" property="sAttentionNum"/>
+            <result column="s_introduction" property="sIntroduction"/>
+            <result column="enter" property="enter"/>
+            <result column="s_photoUrl" property="sPhotoUrl"/>
+        </association>
+
+        <association property="singer3" javaType="com.zs.bean.Singer">
+            <id column="s_id3" property="sId"/>
+            <result column="s_name" property="sName"/>
+            <result column="region" property="region"/>
+            <result column="sex" property="sex"/>
+            <result column="first_letter" property="firstLetter"/>
+            <result column="style" property="style"/>
+            <result column="single_num" property="singleNum"/>
+            <result column="album_num" property="albumNum"/>
+            <result column="mv_num" property="mvNum"/>
+            <result column="s_attention_num" property="sAttentionNum"/>
+            <result column="s_introduction" property="sIntroduction"/>
+            <result column="enter" property="enter"/>
+            <result column="s_photoUrl" property="sPhotoUrl"/>
+        </association>
+
+        <association property="album" resultMap="AlbumResult"/>
+
+    </resultMap>
+
+
+
+    <select id="selectAllAlbum" resultMap="AlbumResult">
+        select a_id,a_name,a.s_id,a_time,a_company,a_type,a_genre,a_language,a_introduction,message_num,
+                s.s_id,s_name,region,sex,first_letter,style,single_num,album_num,mv_num,s_attention_num,s_introduction,enter,s_photo_url
+        from album a left join singer s
+        on a.s_id=s.s_id
+        order by a_time asc;
+    </select>
+    <select id="selectAlbumByRegion" resultMap="AlbumResult">
+        select a_id,a_name,a.s_id,a_time,a_company,a_type,a_genre,a_language,a_introduction,message_num,
+                s.s_id,s_name,region,sex,first_letter,style,single_num,album_num,mv_num,s_attention_num,s_introduction,enter,s_photo_url
+        from album a,singer s
+        where a.s_id=s.s_id and s.region=#{param2} and a_type='Single' or a.s_id=s.s_id and s.region=#{param1} and a_type='Single'
+        order by a_time asc;
+    </select>
+    <select id="selectAlbumByAId" resultMap="AlbumResult">
+        select a_id,a_name,a.s_id,a_time,a_company,a_type,a_genre,a_language,a_introduction,message_num,
+                s.s_id,s_name,region,sex,first_letter,style,single_num,album_num,mv_num,s_attention_num,s_introduction,enter,s_photo_url
+        from album a left join singer s
+        on a.s_id=s.s_id
+        where a_id=#{aId}
+        order by a_time asc;
+    </select>
+    <select id="selectAlbumByFindName" resultMap="AlbumResult">
+        select a_id,a_name,a.s_id,a_time,a_company,a_type,a_genre,a_language,a_introduction,message_num,
+                s.s_id,s_name,region,sex,first_letter,style,single_num,album_num,mv_num,s_attention_num,s_introduction,enter,s_photo_url
+        from album a left join singer s
+        on a.s_id=s.s_id
+        where a_name like concat('%',#{findName},'%')
+        order by a_time asc;
+    </select>
+
+
+</mapper>

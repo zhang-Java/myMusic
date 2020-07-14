@@ -1,0 +1,245 @@
+#m-b5{
+	color: #2ecc71;
+}
+
+#show{
+	background: #f5f5f5;
+	width: 100%;
+	float: left;
+}
+
+#mm-title{
+	float: left;
+	height: 380px;
+	width: 100%;
+	background: url(/resource/img/my_music/bg_profile.jpg);
+}
+
+#mm-tx{
+	width: 110px;
+	height: 110px;
+	border-radius: 50%;
+	background: white;
+	margin: 0 auto;
+	margin-top: 60px;
+}
+
+#tx{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	margin: 5px;
+}
+
+#mm-name{
+	width: 500px;
+	height: 30px;
+	text-align: center;
+	color: white;
+	font-size: 28px;
+	margin: 0 auto;
+}
+
+.mm-text{
+	width: 60px;
+	height: 100px;
+	color: white;
+	font-size: 16px;
+	text-align: center;
+	float: left;
+}
+
+#mm-btns{
+	height: 46px;
+	width: 100%;
+	line-height: 46px;
+	float: left;
+}
+
+.mm-btn{
+	margin: 0 20px;
+	float: left;
+	color: white;
+}
+
+.togreen{
+	color: #2ecc71;
+}
+
+.r-btn1{
+
+	float: left;
+	width: 120px;
+	height: 35px;
+	
+	background: #2ecc71;
+	
+	border-radius: 3px;
+}
+
+.r-btn{
+
+	float: left;
+	width: 119px;
+	height: 34px;
+	
+	border-radius: 3px;
+	border: 1px solid #ADADAD;
+	margin-left: 10px;
+}
+
+.r-text1{
+	float: right;
+	color: white;
+	margin-top: 6px;
+	margin-right: 18px;
+}
+
+.r-text{
+	float: right;
+	margin-top: 6px;
+	margin-right: 18px;
+	color: gray;
+}
+
+#r-s-title{
+	float: left;
+	margin-top: 20px;
+	background: #f0f0f0;
+	width: 1150px;
+	height: 50px;
+}
+
+.r-t{
+	color: gray;
+	float: left;
+	line-height: 48px;
+	font-size: 14px;
+}
+
+.r-s-line1{
+	float: left;
+	width: 1150px;
+	height: 60px;
+}
+
+.r-s-line2{
+	float: left;
+	background: #f0f0f0;
+	width: 1150px;
+	height: 60px;
+}
+
+.s-name{
+	float: left;
+	line-height: 60px;
+	margin-left: 50px;
+	font-size: 14px;
+	width: 528px;
+
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.album-name{
+	float: left;
+	line-height: 60px;
+	
+	font-size: 14px;
+	width: 255px;
+}
+
+.singer-name{
+	float: left;
+	line-height: 60px;
+	width: 244px;
+	
+	font-size: 14px;
+}
+
+.long{
+	float: left;
+	line-height: 60px;
+	
+	font-size: 14px;
+	color: gray;
+}
+
+.togray:hover{
+	background: #dcdde1;
+}
+
+.song-btns{
+	display: none;
+	float: left;
+	margin-left: 264px;
+	margin-right: 20px;
+	
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.s-btn{
+	float: left;
+	width: 40px;
+	height: 40px;
+	background-image: url(/resource/img/yyg/icon_list.png);
+	background-size: 85px;
+	margin-top: 10px;
+	margin-left: 8px;
+}
+
+.del{
+	display: none;
+}
+
+#l-title{
+	float: left;
+	margin: 40px 50px 0px 170px;
+}
+
+#list-cover{
+	float: left;
+	margin-right: 50px;
+}
+
+#list-name{
+	float: left;
+	width: 800px;
+	margin-top: 15px;
+	font-size: 30px;
+}
+
+#user-name{
+	float: left;
+	width: 900px;
+	margin-top: 10px;
+}
+
+#list-tag{
+	float: left;
+	width: 900px;
+}
+
+#listen{
+	width: 800px;
+}
+
+#collection{
+	width: 800px;
+	margin-bottom: 15px;
+}
+
+.l-text{
+	float: left;
+	margin-right: 10px;
+	margin-top: 10px;
+	font-size: 14px;
+}
+
+#list-btns{
+	
+}
+

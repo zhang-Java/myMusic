@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zs.mapper.SingerMapper">
+
+    <select id="selectAllSinger" resultType="com.zs.bean.Singer">
+        select s_id sId,s_name sName,region,sex,first_letter firstLetter,style,single_num singleNum,album_num albumNum,mv_num mvNum,s_attention_num sAttentionNum,s_introduction sIntroduction,enter,s_photo_url sPhotoUrl from singer;
+    </select>
+
+    <select id="selectSingerById" resultType="com.zs.bean.Singer">
+        select s_id sId,s_name sName,region,sex,first_letter firstLetter,style,single_num singleNum,album_num albumNum,mv_num mvNum,s_attention_num sAttentionNum,s_introduction sIntroduction,enter,s_photo_url sPhotoUrl
+        from singer
+        where s_id=#{sId};
+    </select>
+    <select id="selectASingerByUId" resultType="com.zs.bean.Singer">
+        select a.s_id sId,s_name sName,region,sex,first_letter firstLetter,style,single_num singleNum,album_num albumNum,mv_num mvNum,s_attention_num sAttentionNum,s_introduction sIntroduction,enter,s_photo_url sPhotoUrl
+        from attention a left join singer s
+        on a.s_id=s.s_id
+        where a.u_id=#{uId};
+    </select>
+    <select id="selectSingerByLetter" resultType="com.zs.bean.Singer">
+        select s_id sId,s_name sName,region,sex,first_letter firstLetter,style,single_num singleNum,album_num albumNum,mv_num mvNum,s_attention_num sAttentionNum,s_introduction sIntroduction,enter,s_photo_url sPhotoUrl
+        from singer
+        where first_letter=#{tagName};
+    </select>
+    <select id="selectSingerByRegion" resultType="com.zs.bean.Singer">
+        select s_id sId,s_name sName,region,sex,first_letter firstLetter,style,single_num singleNum,album_num albumNum,mv_num mvNum,s_attention_num sAttentionNum,s_introduction sIntroduction,enter,s_photo_url sPhotoUrl
+        from singer
+        where region=#{tagName};
+    </select>
+    <select id="selectSingerBySex" resultType="com.zs.bean.Singer">
+        select s_id sId,s_name sName,region,sex,first_letter firstLetter,style,single_num singleNum,album_num albumNum,mv_num mvNum,s_attention_num sAttentionNum,s_introduction sIntroduction,enter,s_photo_url sPhotoUrl
+        from singer
+        where sex=#{tagName};
+    </select>
+    <select id="selectSingerByStyle" resultType="com.zs.bean.Singer">
+        select s_id sId,s_name sName,region,sex,first_letter firstLetter,style,single_num singleNum,album_num albumNum,mv_num mvNum,s_attention_num sAttentionNum,s_introduction sIntroduction,enter,s_photo_url sPhotoUrl
+        from singer
+        where style=#{tagName};
+    </select>
+
+
+</mapper>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zs.mapper.AttentionMapper">
+
+    <resultMap id="Attention" type="com.zs.bean.Attention">
+
+        <id column="attention_id" property="attentionId"/>
+
+        <association property="user" javaType="com.zs.bean.User">
+            <id column="u_id" property="uId"/>
+            <result column="u_name" property="uName"/>
+            <result column="u_password" property="uPassword"/>
+            <result column="u_number" property="uNumber"/>
+            <result column="u_attention_num" property="uAttentionNum"/>
+            <result column="u_fans_num" property="uFansNum"/>
+            <result column="u_photo_url" property="uPhotoUrl"/>
+        </association>
+
+        <association property="singer" javaType="com.zs.bean.Singer">
+            <id column="s_id" property="sId"/>
+            <result column="s_name" property="sName"/>
+            <result column="region" property="region"/>
+            <result column="sex" property="sex"/>
+            <result column="first_letter" property="firstLetter"/>
+            <result column="style" property="style"/>
+            <result column="single_num" property="singleNum"/>
+            <result column="album_num" property="albumNum"/>
+            <result column="mv_num" property="mvNum"/>
+            <result column="s_attention_num" property="sAttentionNum"/>
+            <result column="s_introduction" property="sIntroduction"/>
+            <result column="enter" property="enter"/>
+            <result column="s_photoUrl" property="sPhotoUrl"/>
+        </association>
+
+    </resultMap>
+
+    <insert id="insertAttentionSinger">
+        insert into attention value(null ,#{param1},#{param2});
+    </insert>
+    <insert id="insertAttentionUser">
+        insert into fans value(null ,#{param1},#{param2});
+    </insert>
+    <delete id="deleteAttentionUser">
+        delete FROM fans WHERE u_id1=#{param1} and u_id2=#{param2};
+    </delete>
+    <delete id="deleteAttentionSinger">
+        delete FROM attention WHERE u_id=#{param1} and s_id=#{param2};
+    </delete>
+
+</mapper>

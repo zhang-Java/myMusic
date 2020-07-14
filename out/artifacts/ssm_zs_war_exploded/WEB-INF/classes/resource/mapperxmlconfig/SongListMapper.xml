@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zs.mapper.SongListMapper">
+
+    <resultMap id="SongList" type="com.zs.bean.SongList">
+        <id column="l_id" property="lId"/>
+        <result column="list_name" property="listName"/>
+        <result column="song_num" property="songNum"/>
+        <result column="l_listen_num" property="lListenNum"/>
+        <result column="l_photo_url" property="lPhotoUrl"/>
+        <result column="l_message_num" property="lMessageNum"/>
+
+        <association property="user" javaType="com.zs.bean.User">
+            <id column="u_id" property="uId"/>
+            <result column="u_name" property="uName"/>
+            <result column="u_password" property="uPassword"/>
+            <result column="u_number" property="uNumber"/>
+            <result column="u_attention_num" property="uAttentionNum"/>
+            <result column="u_fans_num" property="uFansNum"/>
+            <result column="u_photo_url" property="uPhotoUrl"/>
+        </association>
+
+        <association property="tag1" javaType="com.zs.bean.Tag">
+            <id column="tag_id1" property="tId"/>
+            <result column="t_name" property="tName"/>
+            <result column="t_type" property="tType"/>
+        </association>
+
+        <association property="tag2" javaType="com.zs.bean.Tag">
+            <id column="tag_id2" property="tId"/>
+            <result column="t_name" property="tName"/>
+            <result column="t_type" property="tType"/>
+        </association>
+
+        <association property="tag3" javaType="com.zs.bean.Tag">
+            <id column="tag_id3" property="tId"/>
+            <result column="t_name" property="tName"/>
+            <result column="t_type" property="tType"/>
+        </association>
+
+        <association property="songs" resultMap="Song"></association>
+
+    </resultMap>
+
+    <resultMap id="Song" type="com.zs.bean.Song">
+        <id column="song_id" property="songId"/>
+        <result column="song_name" property="songName"/>
+        <result column="s_long" property="sLong"/>
+        <result column="time" property="time"/>
+        <result column="lyric" property="lyric"/>
+        <result column="message_num" property="messageNum"/>
+        <result column="song_listen_num" property="song_listenNum"/>
+        <result column="mv" property="mv"/>
+
+        <association property="singer1" javaType="com.zs.bean.Singer">
+            <id column="s_id1" property="sId"/>
+            <result column="s_name" property="sName"/>
+            <result column="region" property="region"/>
+            <result column="sex" property="sex"/>
+            <result column="first_letter" property="firstLetter"/>
+            <result column="style" property="style"/>
+            <result column="single_num" property="singleNum"/>
+            <result column="album_num" property="albumNum"/>
+            <result column="mv_num" property="mvNum"/>
+            <result column="s_attention_num" property="sAttentionNum"/>
+            <result column="s_introduction" property="sIntroduction"/>
+            <result column="enter" property="enter"/>
+            <result column="s_photoUrl" property="sPhotoUrl"/>
+        </association>
+
+        <association property="singer2" javaType="com.zs.bean.Singer">
+            <id column="s_id2" property="sId"/>
+            <result column="s_name" property="sName"/>
+            <result column="region" property="region"/>
+            <result column="sex" property="sex"/>
+            <result column="first_letter" property="firstLetter"/>
+            <result column="style" property="style"/>
+            <result column="single_num" property="singleNum"/>
+            <result column="album_num" property="albumNum"/>
+            <result column="mv_num" property="mvNum"/>
+            <result column="s_attention_num" property="sAttentionNum"/>
+            <result column="s_introduction" property="sIntroduction"/>
+            <result column="enter" property="enter"/>
+            <result column="s_photoUrl" property="sPhotoUrl"/>
+        </association>
+
+        <association property="singer3" javaType="com.zs.bean.Singer">
+            <id column="s_id3" property="sId"/>
+            <result column="s_name" property="sName"/>
+            <result column="region" property="region"/>
+            <result column="sex" property="sex"/>
+            <result column="first_letter" property="firstLetter"/>
+            <result column="style" property="style"/>
+            <result column="single_num" property="singleNum"/>
+            <result column="album_num" property="albumNum"/>
+            <result column="mv_num" property="mvNum"/>
+            <result column="s_attention_num" property="sAttentionNum"/>
+            <result column="s_introduction" property="sIntroduction"/>
+            <result column="enter" property="enter"/>
+            <result column="s_photoUrl" property="sPhotoUrl"/>
+        </association>
+
+        <association property="album" resultMap="AlbumResult"/>
+
+    </resultMap>
+
+    <resultMap id="AlbumResult" type="com.zs.bean.Album">
+        <id column="a_id" property="aId"/>
+        <result column="a_name" property="aName"/>
+        <result column="a_time" property="aTime"/>
+        <result column="a_company" property="aCompany"/>
+        <result column="a_type" property="aType"/>
+        <result column="a_genre" property="aGenre"/>
+        <result column="a_language" property="aLanguage"/>
+        <result column="a_introduction" property="aIntroduction"/>
+        <result column="message_num" property="messageNum"/>
+
+        <association property="singer" javaType="com.zs.bean.Singer">
+            <id column="s_id" property="sId"/>
+            <result column="s_name" property="sName"/>
+            <result column="region" property="region"/>
+            <result column="sex" property="sex"/>
+            <result column="first_letter" property="firstLetter"/>
+            <result column="style" property="style"/>
+            <result column="single_num" property="singleNum"/>
+            <result column="album_num" property="albumNum"/>
+            <result column="mv_num" property="mvNum"/>
+            <result column="s_attention_num" property="sAttentionNum"/>
+            <result column="s_introduction" property="sIntroduction"/>
+            <result column="enter" property="enter"/>
+            <result column="s_photoUrl" property="sPhotoUrl"/>
+        </association>
+
+    </resultMap>
+
+    <insert id="insertSongList">
+          insert into song_list value (null,#{user.uId},#{listName},#{tag1.tId},#{tag2.tId},#{tag3.tId},#{songNum},#{lListenNum},#{lPhotoUrl},#{lMessageNum});
+    </insert>
+
+    <insert id="insertSongInList">
+        insert into list_date value (null,#{param2},#{param1});
+    </insert>
+    <insert id="insertLike">
+        insert into song_list value (null,#{uId},'我喜欢',1,10,42,0,0,'/resource/img/yyg/cover_like.png',0);
+    </insert>
+    <insert id="doInsertSongToSongList">
+        insert into list_date value (null,#{param1},#{param2});
+    </insert>
+    <update id="updateListenNum">
+        UPDATE song_list SET l_listen_num=#{param2}+1 WHERE l_id=#{param1};
+    </update>
+    <update id="updateSongListSongNum">
+        UPDATE song_list SET song_num=#{param2} WHERE l_id=#{param1};
+    </update>
+    <delete id="doDeleteSongToSongList">
+        delete FROM list_date WHERE song_id=#{param2} and l_id=#{param1};
+    </delete>
+    <delete id="deleteSongList">
+        delete FROM song_list WHERE l_id=#{lId};
+    </delete>
+
+    <select id="selectAllSongList" resultMap="SongList">
+        select sl.l_id,sl.u_id,list_name,tag_id1,tag_id2,tag_id3,song_num,l_listen_num,l_photo_url,l_message_num,ld.song_id,
+		u.u_id,u_name,u_password,u_number,u_attention_num,u_fans_num,u_photo_url,
+        song.song_id,s_id1,s_id2,s_id3,song.a_id,song_name,s_long,time,lyric,song.message_num,song_listen_num,mv,
+        a.a_id,a_name,a.s_id,a_time,a_company,a_type,a_genre,a_language,a_introduction,a.message_num,
+        s.s_id,s_name,region,sex,first_letter,s.style,single_num,album_num,mv_num,s_attention_num,s_introduction,enter,s_photo_url
+        from song_list sl left join list_date ld on sl.l_id=ld.l_id
+        left join user u on u.u_id=sl.u_id
+        left join song on ld.song_id=song.song_id
+        left join album a on  a.a_id=song.a_id
+        left join singer s on s.s_id=song.s_id1;
+    </select>
+    <select id="selectSongListByUId" resultMap="SongList">
+        select sl.l_id,sl.u_id,list_name,tag_id1,tag_id2,tag_id3,song_num,l_listen_num,l_photo_url,l_message_num,ld.song_id,
+		u.u_id,u_name,u_password,u_number,u_attention_num,u_fans_num,u_photo_url,
+        song.song_id,s_id1,s_id2,s_id3,song.a_id,song_name,s_long,time,lyric,song.message_num,song_listen_num,mv,
+        a.a_id,a_name,a.s_id,a_time,a_company,a_type,a_genre,a_language,a_introduction,a.message_num,
+        s.s_id,s_name,region,sex,first_letter,s.style,single_num,album_num,mv_num,s_attention_num,s_introduction,enter,s_photo_url
+        from song_list sl left join list_date ld on sl.l_id=ld.l_id
+        left join user u on u.u_id=sl.u_id
+        left join song on ld.song_id=song.song_id
+        left join album a on  a.a_id=song.a_id
+        left join singer s on s.s_id=song.s_id1
+        where u.u_id=#{uId};
+    </select>
+    <select id="selectSongListBylId" resultMap="SongList">
+        select sl.l_id,sl.u_id,list_name,tag_id1,tag_id2,tag_id3,song_num,l_listen_num,l_photo_url,l_message_num,ld.song_id,
+		u.u_id,u_name,u_password,u_number,u_attention_num,u_fans_num,u_photo_url,
+        song.song_id,s_id1,s_id2,s_id3,song.a_id,song_name,s_long,time,lyric,song.message_num,song_listen_num,mv,
+        a.a_id,a_name,a.s_id,a_time,a_company,a_type,a_genre,a_language,a_introduction,a.message_num,
+        s.s_id,s_name,region,sex,first_letter,s.style,single_num,album_num,mv_num,s_attention_num,s_introduction,enter,s_photo_url
+        from song_list sl left join list_date ld on sl.l_id=ld.l_id
+        left join user u on u.u_id=sl.u_id
+        left join song on ld.song_id=song.song_id
+        left join album a on  a.a_id=song.a_id
+        left join singer s on s.s_id=song.s_id1
+        where sl.l_id=#{lId};
+    </select>
+    <select id="selectSongDateByLId" resultMap="Song">
+        select song.song_id,s_id1,s_id2,s_id3,song.a_id,song_name,s_long,time,lyric,song.message_num,song_listen_num,mv,
+                a.a_id,a_name,a.s_id,a_time,a_company,a_type,a_genre,a_language,a_introduction,a.message_num,
+                s.s_id,s_name,region,sex,first_letter,s.style,single_num,album_num,mv_num,s_attention_num,s_introduction,enter,s_photo_url
+        from list_date ld left join song
+        on song.song_id=ld.song_id
+        left join album a on a.a_id=song.a_id
+        left join singer s on s.s_id=song.s_id1
+        where ld.l_id=#{lId};
+    </select>
+    <select id="selectSongListByFindName" resultMap="SongList">
+        select sl.l_id,sl.u_id,list_name,tag_id1,tag_id2,tag_id3,song_num,l_listen_num,l_photo_url,l_message_num,ld.song_id,
+		u.u_id,u_name,u_password,u_number,u_attention_num,u_fans_num,u_photo_url,
+        song.song_id,s_id1,s_id2,s_id3,song.a_id,song_name,s_long,time,lyric,song.message_num,song_listen_num,mv,
+        a.a_id,a_name,a.s_id,a_time,a_company,a_type,a_genre,a_language,a_introduction,a.message_num,
+        s.s_id,s_name,region,sex,first_letter,s.style,single_num,album_num,mv_num,s_attention_num,s_introduction,enter,s_photo_url
+        from song_list sl left join list_date ld on sl.l_id=ld.l_id
+        left join user u on u.u_id=sl.u_id
+        left join song on ld.song_id=song.song_id
+        left join album a on  a.a_id=song.a_id
+        left join singer s on s.s_id=song.s_id1
+        where sl.list_name like concat('%',#{findName},'%');
+    </select>
+    <select id="selectSongNum" resultType="java.lang.Integer">
+        select count(l.l_id)
+        from song_list l left join list_date d
+        on l.l_id=d.l_id
+        where l.l_id=#{tempLId};
+    </select>
+    <select id="selectSongListByTId" resultMap="SongList">
+        select sl.l_id,sl.u_id,list_name,tag_id1,tag_id2,tag_id3,song_num,l_listen_num,l_photo_url,l_message_num,ld.song_id,
+		u.u_id,u_name,u_password,u_number,u_attention_num,u_fans_num,u_photo_url,
+        song.song_id,s_id1,s_id2,s_id3,song.a_id,song_name,s_long,time,lyric,song.message_num,song_listen_num,mv,
+        a.a_id,a_name,a.s_id,a_time,a_company,a_type,a_genre,a_language,a_introduction,a.message_num,
+        s.s_id,s_name,region,sex,first_letter,s.style,single_num,album_num,mv_num,s_attention_num,s_introduction,enter,s_photo_url
+        from song_list sl left join list_date ld on sl.l_id=ld.l_id
+        left join user u on u.u_id=sl.u_id
+        left join song on ld.song_id=song.song_id
+        left join album a on  a.a_id=song.a_id
+        left join singer s on s.s_id=song.s_id1
+        where tag_id1=#{tId} or tag_id2=#{tId} or tag_id3=#{tId};
+    </select>
+    <select id="selectCollectNum" resultType="java.lang.Integer">
+        select count(l_id)
+        from song_list
+        where list_name=#{name};
+    </select>
+
+
+</mapper>

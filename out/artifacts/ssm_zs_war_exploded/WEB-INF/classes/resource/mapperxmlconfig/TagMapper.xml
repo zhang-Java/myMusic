@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zs.mapper.TagMapper">
+
+
+    <insert id="insertTag">
+        insert into tag value (null,#{tName},#{tType});
+    </insert>
+
+    <select id="selectTagByTId" resultType="com.zs.bean.Tag">
+        select t_id tId,t_name tName,t_type tType
+        from tag
+        where t_id=#{tId};
+    </select>
+    <select id="selectTagsByLId" resultType="com.zs.bean.Tag">
+        select t_id tId,t_name tName,t_type tType,l_id
+        from tag,song_list
+        where l_id=#{lId} and t_id=tag_id1 or l_id=#{lId} and t_id=tag_id2 or l_id=#{lId} and t_id=tag_id3;
+    </select>
+
+    <select id="selectAllTag" resultType="com.zs.bean.Tag">
+        select t_id tId,t_name tName,t_type tType
+        from tag;
+    </select>
+
+</mapper>

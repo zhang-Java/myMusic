@@ -1,0 +1,169 @@
+#m-b2{
+	color: #2ecc71;
+}
+
+.s-tag{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+}
+
+.content1{
+	width: 1100px;
+	height: 100%;
+	
+	margin: 0 auto;
+}
+
+.tag-head{
+	
+	float: left;
+	background: #2ecc71;
+	margin-right: 40px;
+	color: white;
+	
+	width: 50px;
+	height: 25px;
+	
+	line-height: 25px;
+	text-align: center;
+	
+	margin-top: 12px;
+	
+}
+
+.tags{
+	float: left;
+	margin-right: 28px;
+	font-size: 14px;
+}
+
+#s-tag1{
+	margin-top: 50px;
+}
+
+#singer-tag .tags:hover{
+	cursor:pointer;
+	color: #2ecc71;
+}
+
+#singer-tops{
+	height: 1300px;
+}
+
+.singer-top{
+	float: left;
+	width: 150px;
+	height: 200px;
+	
+	margin-left: 45px;
+	margin-right: 45px;
+	margin-bottom: 45px;
+}
+
+.photo{
+	border-radius:50%; 
+	width: 150px;
+	height: 150px;
+}
+
+.photo:hover{
+	cursor:pointer;
+}
+
+.singer-name{
+	width: 100%;
+	text-align: center;
+	margin-top: 18px;
+}
+
+.singer-name:hover{
+	cursor:pointer;
+	color: #2ecc71;
+}
+
+#singer-b-names{
+	width: 100%;
+	height: 800px;
+}
+
+.singer-b-name{
+	
+	width: 120px;
+	height: 30px;
+	
+	float: left;
+	margin:0px 50px 20px 50px; 
+	
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	
+}
+
+.singer-b-name:hover{
+	
+	cursor:pointer;
+	
+	color: #2ecc71;
+	
+}
+
+#sing-page{
+	float: left;
+	height: 100px;
+	/*width: 100%;*/
+}
+
+
+#pages{
+	height: 50px;
+	/* width: 540px; */
+	/* background: #0984E3; */
+	/* margin: 0 auto;*/
+}
+
+#last-page{
+	float: left;
+	width: 50px;
+	height: 50px;
+}
+
+#next-page{
+	float: right;
+	width: 50px;
+	height: 50px;
+}
+
+
+.page{
+	width: 50px;
+	height: 50px;
+	float: left;
+	line-height: 50px;
+	text-align: center;
+
+	margin: 0px 5px;
+
+}
+
+.page2{
+	width: 50px;
+	height: 50px;
+	float: left;
+	line-height: 50px;
+	text-align: center;
+	margin: 0px 5px;
+
+	background: #2ecc71;
+	color: white;
+
+	cursor:pointer;
+}
+
+.page:hover{
+	cursor:pointer;
+	background: #2ecc71;
+	color: white;
+
+}
